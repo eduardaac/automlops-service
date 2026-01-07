@@ -284,7 +284,6 @@ automlops_api/
 ## 📧 Contato
 
 - **GitHub**: [@eduardaac](https://github.com/eduardaac)
-- **Repository**: [TCC](https://github.com/eduardaac/TCC)
 
 ---
 
