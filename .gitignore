@@ -1,0 +1,53 @@
+# AutoMLOps API - Git Ignore Configuration
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.python-version
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Distribution
+*.egg-info/
+dist/
+build/
+
+# Machine Learning / MLflow
+mlruns/
+mlartifacts/
+catboost_info/
+
+# Models
+*.pkl
+*.joblib
+
+# Data (allow dashboards)
+*.csv
+!grafana/**/**.csv
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+logs.log
+
+# Temporary
+tmp/
+temp/
+
+# Environment
+.env
+.env.local
+!.env.example
+!.env.template
+
+# Database
+*.db
+*.sqlite

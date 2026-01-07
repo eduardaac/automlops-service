@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "AutoMLOps"
+version = "1.0.0"
+description = "Plataforma Auto-Adaptativa para Modelos de Machine Learning"
+authors = ["Eduarda Araujo"]
+readme = "Readme.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "~3.11"
+kaleido = "^0.2.1, !=0.2.1.post1"
+pycaret = "^3.3.1"
+matplotlib = "<3.8.0"
+scipy = "^1.6.0, <=1.11.4"
+fastapi = {extras = ["uvicorn"], version = "^0.112.2"}
+python-multipart = "^0.0.9"
+streamlit = "^1.31.1"
+uvicorn = {extras = ["standard"], version = "^0.27.1"}
+seaborn = "^0.13.2"
+sqlalchemy = "^2.0.27"
+pydantic = "^2.6.1"
+evidently = "^0.4.16"
+python-dotenv = "^1.0.1"
+mlflow = "^2.10.0"
+psycopg2-binary = "^2.9.9"
+prometheus-client = "^0.19.0"
+kafka-python = "^2.0.2"
+cachetools = "^5.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

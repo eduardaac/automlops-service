@@ -1,0 +1,23 @@
+# prometheus.yml
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - "rules/*.yml"
+
+scrape_configs:
+  - job_name: 'automlops-api'
+    static_configs:
+      - targets: ['host.docker.internal:8000']  # API local na porta 8000
+    metrics_path: '/monitoring/metrics/prometheus'
+    scrape_interval: 10s
+
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: []

@@ -1,0 +1,886 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Dashboard for monitoring Machine Learning models in production - AutoMLOps v2",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "liveNow": true,
+  "panels": [
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Stage"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "champion": {
+                        "color": "green",
+                        "index": 0,
+                        "text": "CHAMPION"
+                      },
+                      "challenger": {
+                        "index": 1,
+                        "text": "CHALLENGER"
+                      },
+                      "archived": {
+                        "index": 2,
+                        "text": "ARCHIVED"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 120
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Health Index"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "dark-red",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 0.3
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 0.5
+                    },
+                    {
+                      "color": "green",
+                      "value": 0.7
+                    },
+                    {
+                      "color": "dark-green",
+                      "value": 0.85
+                    }
+                  ]
+                }
+              },
+              {
+                "id": "unit",
+                "value": "percentunit"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "F1 Score"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percentunit"
+              },
+              {
+                "id": "custom.filterable",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Accuracy"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percentunit"
+              },
+              {
+                "id": "custom.filterable",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Precision"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percentunit"
+              },
+              {
+                "id": "custom.filterable",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Recall"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percentunit"
+              },
+              {
+                "id": "custom.filterable",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ROC AUC"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percentunit"
+              },
+              {
+                "id": "custom.filterable",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MAE"
+            },
+            "properties": [
+              {
+                "id": "decimals",
+                "value": 4
+              },
+              {
+                "id": "custom.filterable",
+                "value": true
+              },
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "tooltip": false,
+                  "viz": false,
+                  "legend": false
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RMSE"
+            },
+            "properties": [
+              {
+                "id": "decimals",
+                "value": 4
+              },
+              {
+                "id": "custom.filterable",
+                "value": true
+              },
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "tooltip": false,
+                  "viz": false,
+                  "legend": false
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "R²"
+            },
+            "properties": [
+              {
+                "id": "decimals",
+                "value": 4
+              },
+              {
+                "id": "custom.filterable",
+                "value": true
+              },
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "tooltip": false,
+                  "viz": false,
+                  "legend": false
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MSE"
+            },
+            "properties": [
+              {
+                "id": "decimals",
+                "value": 4
+              },
+              {
+                "id": "custom.filterable",
+                "value": true
+              },
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "tooltip": false,
+                  "viz": false,
+                  "legend": false
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Model"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 200
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Created At"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 140
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 8,
+      "options": {
+        "cellHeight": "md",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": ["sum"],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Stage"
+          }
+        ]
+      },
+      "pluginVersion": "10.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "-- Active Models Comparison Table\n-- Shows latest metrics from performance_logs (after predictions) or results (initial training)\n-- Supports both CLASSIFICATION and REGRESSION models\nWITH latest_valid_performance AS (\n  SELECT DISTINCT ON (model_key)\n    model_key,\n    -- Classification metrics\n    accuracy, precision, recall, f1_score, roc_auc,\n    -- Regression metrics\n    mae, rmse, r2, mse,\n    -- Health metric\n    health_index,\n    timestamp\n  FROM performance_logs\n  WHERE accuracy IS NOT NULL\n     OR precision IS NOT NULL\n     OR recall IS NOT NULL\n     OR f1_score IS NOT NULL\n     OR roc_auc IS NOT NULL\n     OR mae IS NOT NULL\n     OR rmse IS NOT NULL\n     OR r2 IS NOT NULL\n     OR mse IS NOT NULL\n  ORDER BY model_key, timestamp DESC\n),\nactive_models AS (\n  SELECT \n    r.key AS model_key,\n    r.model,\n    r.stage::text AS stage,\n    -- Classification metrics\n    r.accuracy, r.precision, r.recall, r.f1_score, r.roc_auc,\n    -- Regression metrics\n    r.mae, r.rmse, r.r2, r.mse,\n    r.created_at,\n    -- Detect model type based on available metrics\n    CASE \n      WHEN r.accuracy IS NOT NULL OR r.precision IS NOT NULL OR r.recall IS NOT NULL THEN 'classification'\n      WHEN r.mae IS NOT NULL OR r.rmse IS NOT NULL OR r.r2 IS NOT NULL THEN 'regression'\n      ELSE 'unknown'\n    END AS model_type\n  FROM results r\n  WHERE r.is_active = true\n)\nSELECT\n  am.model AS \"Model\",\n  UPPER(am.stage) AS \"Stage\",\n  am.model_type AS \"Type\",\n  -- Classification metrics (NULL for regression models)\n  CASE WHEN am.model_type = 'classification' \n    THEN ROUND(COALESCE(lv.accuracy, am.accuracy)::numeric, 4) \n    ELSE NULL \n  END AS \"Accuracy\",\n  CASE WHEN am.model_type = 'classification' \n    THEN ROUND(COALESCE(lv.precision, am.precision)::numeric, 4) \n    ELSE NULL \n  END AS \"Precision\",\n  CASE WHEN am.model_type = 'classification' \n    THEN ROUND(COALESCE(lv.recall, am.recall)::numeric, 4) \n    ELSE NULL \n  END AS \"Recall\",\n  CASE WHEN am.model_type = 'classification' \n    THEN ROUND(COALESCE(lv.f1_score, am.f1_score)::numeric, 4) \n    ELSE NULL \n  END AS \"F1 Score\",\n  CASE WHEN am.model_type = 'classification' \n    THEN ROUND(COALESCE(lv.roc_auc, am.roc_auc)::numeric, 4) \n    ELSE NULL \n  END AS \"ROC AUC\",\n  -- Regression metrics (NULL for classification models)\n  CASE WHEN am.model_type = 'regression' \n    THEN ROUND(COALESCE(lv.mae, am.mae)::numeric, 4) \n    ELSE NULL \n  END AS \"MAE\",\n  CASE WHEN am.model_type = 'regression' \n    THEN ROUND(COALESCE(lv.rmse, am.rmse)::numeric, 4) \n    ELSE NULL \n  END AS \"RMSE\",\n  CASE WHEN am.model_type = 'regression' \n    THEN ROUND(COALESCE(lv.r2, am.r2)::numeric, 4) \n    ELSE NULL \n  END AS \"R²\",\n  CASE WHEN am.model_type = 'regression' \n    THEN ROUND(COALESCE(lv.mse, am.mse)::numeric, 4) \n    ELSE NULL \n  END AS \"MSE\",\n  -- Health Index (for all models)\n  ROUND(COALESCE(lv.health_index, 1.0)::numeric, 4) AS \"Health Index\",\n  -- Timestamps\n  TO_CHAR(am.created_at, 'YYYY-MM-DD HH24:MI') AS \"Created At\",\n  CASE \n    WHEN lv.timestamp IS NOT NULL THEN TO_CHAR(lv.timestamp, 'YYYY-MM-DD HH24:MI')\n    ELSE 'No predictions yet'\n  END AS \"Last Update\"\nFROM active_models am\nLEFT JOIN latest_valid_performance lv ON lv.model_key = am.model_key\nORDER BY \n  CASE am.stage\n    WHEN 'champion' THEN 1 \n    WHEN 'challenger' THEN 2 \n    ELSE 3 \n  END,\n  -- Sort by best metric available (F1 for classification, R² for regression)\n  COALESCE(lv.f1_score, am.f1_score, lv.r2, am.r2, -1) DESC",
+          "refId": "A",
+          "table": "results",
+          "timeColumn": "created_at",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Active Models - Comparison",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "problem_type": true,
+              "stage_order": true,
+              "sort_metric": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisColorMode": "text",
+            "axisLabel": "Performance",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "tooltip": false,
+              "viz": false,
+              "legend": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 3,
+            "pointSize": 6,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": true,
+            "stacking": {
+              "mode": "none",
+              "group": "A"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit",
+          "decimals": 2
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": ".*CHAMPION.*"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "green"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": ".*CHALLENGER.*"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "blue"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 24,
+      "options": {
+        "legend": {
+          "calcs": ["last", "mean"],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "10.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres"
+          },
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "-- Shows complete performance_logs history + current values\nWITH latest_performance AS (\n  SELECT DISTINCT ON (pl.model_key)\n    pl.model_key,\n    pl.f1_score,\n    pl.accuracy,\n    pl.precision,\n    pl.recall,\n    pl.roc_auc,\n    pl.timestamp\n  FROM performance_logs pl\n  WHERE pl.accuracy > 0 OR pl.f1_score > 0\n  ORDER BY pl.model_key, pl.timestamp DESC\n)\n-- Part 1: Initial point (model creation)\nSELECT \n  EXTRACT(EPOCH FROM r.created_at) * 1000 AS time,\n  CONCAT(r.model, ' (', UPPER(r.stage::text), ')') AS metric,\n  CASE COALESCE(LOWER(f.optimization_metric), 'accuracy')\n    WHEN 'f1_score' THEN r.f1_score\n    WHEN 'f1-score' THEN r.f1_score\n    WHEN 'f1' THEN r.f1_score\n    WHEN 'accuracy' THEN r.accuracy\n    WHEN 'precision' THEN r.precision\n    WHEN 'recall' THEN r.recall\n    WHEN 'roc_auc' THEN r.roc_auc\n    WHEN 'roc-auc' THEN r.roc_auc\n    WHEN 'auc' THEN r.roc_auc\n    ELSE r.accuracy\n  END AS value\nFROM results r\nJOIN files f ON r.file_id = f.id\nWHERE r.is_active = true\n\nUNION ALL\n\n-- Part 2: Complete performance_logs history\nSELECT \n  EXTRACT(EPOCH FROM pl.timestamp) * 1000 AS time,\n  CONCAT(r.model, ' (', UPPER(r.stage::text), ')') AS metric,\n  CASE COALESCE(LOWER(f.optimization_metric), 'accuracy')\n    WHEN 'f1_score' THEN pl.f1_score\n    WHEN 'f1-score' THEN pl.f1_score\n    WHEN 'f1' THEN pl.f1_score\n    WHEN 'accuracy' THEN pl.accuracy\n    WHEN 'precision' THEN pl.precision\n    WHEN 'recall' THEN pl.recall\n    WHEN 'roc_auc' THEN pl.roc_auc\n    WHEN 'roc-auc' THEN pl.roc_auc\n    WHEN 'auc' THEN pl.roc_auc\n    ELSE pl.accuracy\n  END AS value\nFROM performance_logs pl\nJOIN results r ON pl.model_key = r.key\nJOIN files f ON r.file_id = f.id\nWHERE r.is_active = true\n  AND (pl.accuracy > 0 OR pl.f1_score > 0)\n  AND CASE COALESCE(LOWER(f.optimization_metric), 'accuracy')\n    WHEN 'f1_score' THEN pl.f1_score\n    WHEN 'f1-score' THEN pl.f1_score\n    WHEN 'f1' THEN pl.f1_score\n    WHEN 'accuracy' THEN pl.accuracy\n    WHEN 'precision' THEN pl.precision\n    WHEN 'recall' THEN pl.recall\n    WHEN 'roc_auc' THEN pl.roc_auc\n    WHEN 'roc-auc' THEN pl.roc_auc\n    WHEN 'auc' THEN pl.roc_auc\n    ELSE pl.accuracy\n  END > 0\n\nUNION ALL\n\n-- Part 3: Current point (NOW) with most recent value\nSELECT \n  EXTRACT(EPOCH FROM NOW()) * 1000 AS time,\n  CONCAT(r.model, ' (', UPPER(r.stage::text), ')') AS metric,\n  CASE COALESCE(LOWER(f.optimization_metric), 'accuracy')\n    WHEN 'f1_score' THEN COALESCE(lp.f1_score, r.f1_score)\n    WHEN 'f1-score' THEN COALESCE(lp.f1_score, r.f1_score)\n    WHEN 'f1' THEN COALESCE(lp.f1_score, r.f1_score)\n    WHEN 'accuracy' THEN COALESCE(lp.accuracy, r.accuracy)\n    WHEN 'precision' THEN COALESCE(lp.precision, r.precision)\n    WHEN 'recall' THEN COALESCE(lp.recall, r.recall)\n    WHEN 'roc_auc' THEN COALESCE(lp.roc_auc, r.roc_auc)\n    WHEN 'roc-auc' THEN COALESCE(lp.roc_auc, r.roc_auc)\n    WHEN 'auc' THEN COALESCE(lp.roc_auc, r.roc_auc)\n    ELSE COALESCE(lp.accuracy, r.accuracy)\n  END AS value\nFROM results r\nJOIN files f ON r.file_id = f.id\nLEFT JOIN latest_performance lp ON lp.model_key = r.key\nWHERE r.is_active = true\n\nORDER BY time, metric",
+          "refId": "A"
+        }
+      ],
+      "title": "Active Models - Optimization Metric Evolution",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "10.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT COUNT(*) as \"Active Alerts\" FROM alerts WHERE lower(status::text) = 'open'",
+          "refId": "A"
+        }
+      ],
+      "title": "Total Active Alerts",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "postgres"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Alert Type"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "performance_degradation": {
+                        "color": "dark-red",
+                        "index": 0,
+                        "text": "PERFORMANCE DEGRADATION"
+                      },
+                      "system_error": {
+                        "color": "blue",
+                        "index": 1,
+                        "text": "SYSTEM ERROR"
+                      },
+                      "data_quality": {
+                        "color": "yellow",
+                        "index": 2,
+                        "text": "DATA QUALITY"
+                      },
+                      "model_drift": {
+                        "color": "orange",
+                        "index": 3,
+                        "text": "MODEL DRIFT"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 250
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "open": {
+                        "color": "red",
+                        "index": 0,
+                        "text": "OPEN"
+                      },
+                      "acknowledged": {
+                        "color": "yellow",
+                        "index": 1,
+                        "text": "ACKNOWLEDGED"
+                      },
+                      "resolved": {
+                        "color": "green",
+                        "index": 2,
+                        "text": "RESOLVED"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Action Required"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "URGENT_RETRAINING": {
+                        "color": "dark-red",
+                        "index": 0,
+                        "text": "URGENT: Retrain Model Immediately"
+                      },
+                      "CONSIDER_RETRAINING": {
+                        "color": "orange",
+                        "index": 1,
+                        "text": "Schedule Model Retraining"
+                      },
+                      "CONSIDER_CHALLENGER_SWITCH": {
+                        "color": "yellow",
+                        "index": 2,
+                        "text": "Evaluate Switching to Challenger"
+                      },
+                      "MONITOR_TRAFFIC": {
+                        "color": "blue",
+                        "index": 3,
+                        "text": "Monitor Traffic Volume"
+                      },
+                      "CHECK_SYSTEM_LOGS": {
+                        "color": "purple",
+                        "index": 4,
+                        "text": "Check System Logs"
+                      },
+                      "INVESTIGATE_ERROR": {
+                        "color": "red",
+                        "index": 5,
+                        "text": "Investigate System Error"
+                      },
+                      "VALIDATE_INPUT_DATA": {
+                        "color": "orange",
+                        "index": 6,
+                        "text": "Validate Input Data Quality"
+                      },
+                      "EVALUATE_CHALLENGER": {
+                        "color": "yellow",
+                        "index": 7,
+                        "text": "Evaluate Challenger Model"
+                      },
+                      "INVESTIGATE_AND_MONITOR": {
+                        "color": "semi-dark-blue",
+                        "index": 8,
+                        "text": "Investigate and Monitor"
+                      },
+                      "REVIEW_ALERT_DETAILS": {
+                        "color": "light-blue",
+                        "index": 9,
+                        "text": "Review Alert Details"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "custom.width",
+                "value": 280
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Model"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 120
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "id": 17,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": ["sum"],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Created At"
+          }
+        ]
+      },
+      "pluginVersion": "10.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "postgres"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT \n  a.id as \"Alert ID\",\n  lower(replace(a.alert_type::text, ' ', '_')) as \"Alert Type\",\n  lower(a.status::text) as \"Status\",\n  SUBSTRING(r.model, 1, 20) as \"Model\",\n  r.stage::text as \"Model Stage\",\n  CASE \n    WHEN lower(replace(a.alert_type::text, ' ', '_')) = 'performance_degradation' THEN \n      CASE \n        WHEN (a.details LIKE '%Health Index fell to%' OR a.details LIKE '%Health Index caiu para%') THEN\n          CASE \n            WHEN CAST(COALESCE(SUBSTRING(a.details FROM 'Health Index fell to ([0-9.]+)'), SUBSTRING(a.details FROM 'Health Index caiu para ([0-9.]+)')) AS FLOAT) < 0.5 THEN 'URGENT_RETRAINING'\n            WHEN CAST(COALESCE(SUBSTRING(a.details FROM 'Health Index fell to ([0-9.]+)'), SUBSTRING(a.details FROM 'Health Index caiu para ([0-9.]+)')) AS FLOAT) < 0.7 THEN 'CONSIDER_CHALLENGER_SWITCH'\n            ELSE 'CONSIDER_RETRAINING'\n          END\n        ELSE 'INVESTIGATE_AND_MONITOR'\n      END\n    WHEN lower(replace(a.alert_type::text, ' ', '_')) = 'system_error' THEN \n      CASE \n        WHEN a.details LIKE '%Volume Risk%' THEN 'MONITOR_TRAFFIC'\n        WHEN a.details LIKE '%prediction%' OR a.details LIKE '%error%' THEN 'CHECK_SYSTEM_LOGS'\n        ELSE 'INVESTIGATE_ERROR'\n      END\n    WHEN lower(replace(a.alert_type::text, ' ', '_')) = 'data_quality' THEN 'VALIDATE_INPUT_DATA'\n    WHEN lower(replace(a.alert_type::text, ' ', '_')) = 'model_drift' THEN 'EVALUATE_CHALLENGER'\n    ELSE 'REVIEW_ALERT_DETAILS'\n  END as \"Action Required\",\n  SUBSTRING(a.details, 1, 120) as \"Alert Details\",\n  CASE \n    WHEN a.retraining_job_id IS NOT NULL THEN 'Yes'\n    ELSE 'No'\n  END as \"Retraining Job\",\n  TO_CHAR(a.created_at, 'YYYY-MM-DD HH24:MI:SS') as \"Created At\",\n  TO_CHAR(a.updated_at, 'YYYY-MM-DD HH24:MI:SS') as \"Updated At\"\nFROM alerts a\nJOIN results r ON a.model_key = r.key\nWHERE lower(a.status::text) = 'open'\nORDER BY a.created_at DESC\nLIMIT 20",
+          "refId": "A"
+        }
+      ],
+      "title": "Active Alerts - Action Plan",
+      "type": "table"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": ["automlops", "ml-monitoring", "production", "health-index", "drift-detection"],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-30d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "America/Sao_Paulo",
+  "title": "AutoMLOps - ML Model Monitoring Dashboard",
+  "uid": "automlops-professional-v2",
+  "version": 1,
+  "weekStart": ""
+}
