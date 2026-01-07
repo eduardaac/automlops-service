@@ -1,7 +1,4 @@
 # AutoMLOps - Arquitetura Auto-Adaptativa para Machine Learning
-
-![GitHub repo size](https://img.shields.io/github/repo-size/eduardaac/TCC?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/eduardaac/TCC?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.112.2-009688?style=for-the-badge&logo=fastapi)
 ![Grafana](https://img.shields.io/badge/Grafana-Latest-F46800?style=for-the-badge&logo=grafana&logoColor=white)
