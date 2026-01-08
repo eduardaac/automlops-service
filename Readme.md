@@ -26,7 +26,7 @@
 - 📊 **Monitoramento**: Dashboard em tempo real com Grafana + Prometheus
 - 🔄 **Champion/Challenger**: Sistema de comparação de modelos
 - 🚨 **Alertas**: Detecção automática de degradação de performance
-- 🏥 **Health Index**: Métrica unificada combinando Drift (50%) + Confidence (30%) + Anomaly (20%)
+- 🏥 **Health Index**: Métrica unificada combinando Confidence (50%) + Drift (40%) + Anomaly (10%)
 - 🐳 **Docker**: Deploy simplificado com Docker Compose
 
 ### 🎨 Features Principais
@@ -36,7 +36,7 @@
 | **Treinamento Automatizado** | PyCaret AutoML com 15+ algoritmos |
 | **Sistema Champion/Challenger** | Comparação automática entre modelos |
 | **Monitoramento Visual** | Dashboards Grafana|
-| **Health Index (Métrica Real)** | Proxy unificado: Drift (50%) + Confidence (30%) + Anomaly (20%) |
+| **Health Index (Métrica Real)** | Proxy unificado: Confidence (50%) + Drift (40%) + Anomaly (10%) |
 | **Data Drift Detection** | Alertas de mudança na distribuição |
 | **MLflow Tracking** | Rastreamento de experimentos |
 | **API REST** | FastAPI com documentação automática |
